@@ -119,6 +119,17 @@ public class MembershipManagment {
 
     public void removeMember(LinkedList<Member> members) {
         int memberID;
-        System.out.print("Enter ");
+
+        System.out.print("Enter the id of the member you want to remove: ");
+        memberID = getIntInput();
+
+        for (int i = 0; i < members.size(); i++) {
+                if (members.get(i).getMemberID() == memberID) {
+                    members.remove(i);
+                    System.out.println("Remove operation successfully done");
+                    return;
+                }
+        }
+        System.out.println("Member with this id doesn't represent in list");
     }
 }
