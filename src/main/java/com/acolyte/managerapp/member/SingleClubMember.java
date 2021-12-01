@@ -18,7 +18,7 @@ public class SingleClubMember extends Member {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "club - " + club + LINE_SEPARATOR;
+        return super.toString() + COMMA +
+                club;
     }
 }

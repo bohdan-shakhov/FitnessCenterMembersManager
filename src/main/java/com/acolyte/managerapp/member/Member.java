@@ -2,6 +2,7 @@ package com.acolyte.managerapp.member;
 
 public class Member {
     public static final String LINE_SEPARATOR = System.lineSeparator();
+    public static final String COMMA = ", ";
 
     private char memberType;
     private int memberID;
@@ -49,10 +50,9 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member " + LINE_SEPARATOR +
-                "Type - " + memberType + LINE_SEPARATOR +
-                ", ID - " + memberID + LINE_SEPARATOR +
-                ", name - " + name +  LINE_SEPARATOR +
-                ", fees = " + fees + LINE_SEPARATOR;
+        return memberType + COMMA +
+                memberID + COMMA +
+                name +  COMMA +
+                fees;
     }
 }

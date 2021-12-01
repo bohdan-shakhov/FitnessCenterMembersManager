@@ -39,7 +39,7 @@ public class MembershipManagment {
     }
 
     public int getChoise() {
-        int choise = 0;
+        int choise;
 
         System.out.println("WELCOME TO OUR FITNESS CENTER");
         System.out.println("==============================");
@@ -54,7 +54,7 @@ public class MembershipManagment {
 
     public String addMembers(LinkedList<Member> members) {
         String name;
-        int club = 0;
+        int club = -1;
         String memberInf = null;
         double fees;
         int memberID;
@@ -71,6 +71,7 @@ public class MembershipManagment {
             club = getIntInput();
             if (club < 1 || club > 4) {
                 System.err.println("Input correct value!!!");
+                club = -1;
             }
         }
 
@@ -138,20 +139,28 @@ public class MembershipManagment {
     public void printMemberInfo(LinkedList<Member> members) {
         int memberID;
 
-        System.out.print("Enter the id of the member you want to remove: ");
+        System.out.print("Enter the id of the member you want to print: ");
         memberID = getIntInput();
 
         for (Member member : members) {
             if (member.getMemberID() == memberID) {
                 String[] memberInf = member.toString().split(", ");
-                if (memberInf[0].equals('S')) {
-                    System.out.println("Member type: " + 'S' + SEPARATOR +
+                if (memberInf[0].equals("S")) {
+                    String clubName = null;
+                    if (Integer.parseInt(memberInf[4]) == 1) {
+                        clubName = "Mercury";
+                    } else if (Integer.parseInt(memberInf[4]) == 2) {
+                        clubName = "Neptune";
+                    } else if (Integer.parseInt(memberInf[4]) == 3) {
+                        clubName = "Jupiter";
+                    }
+                    System.out.println("Member type: " + "Single" + SEPARATOR +
                             "Member ID: " + memberInf[1] + SEPARATOR +
                             "Member name: " + memberInf[2] + SEPARATOR +
                             "Member fees: " + memberInf[3] + "$" + SEPARATOR +
-                            "Club id: " + memberInf[4] + SEPARATOR);
+                            "Club: " + clubName + SEPARATOR);
                 } else {
-                    System.out.println("Member type: " + 'M' + SEPARATOR +
+                    System.out.println("Member type: " + "Multiple" + SEPARATOR +
                             "Member ID: " + memberInf[1] + SEPARATOR +
                             "Member name: " + memberInf[2] + SEPARATOR +
                             "Member fees: " + memberInf[3] + "$" + SEPARATOR +

@@ -5,7 +5,6 @@ import com.acolyte.managerapp.member.MultiClubMember;
 import com.acolyte.managerapp.member.SingleClubMember;
 
 import java.io.*;
-import java.nio.file.NoSuchFileException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class FileHandler {
 
             while (lineRead != null) {
                 splitLine = lineRead.split(", ");
-                if (splitLine[0].equals('S')) {
+                if (splitLine[0].equals("S")) {
                     member = new SingleClubMember('S',
                             Integer.parseInt(splitLine[1]),
                             splitLine[2],
