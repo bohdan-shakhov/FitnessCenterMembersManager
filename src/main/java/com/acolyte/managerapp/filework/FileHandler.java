@@ -13,8 +13,8 @@ public class FileHandler {
 
     public static final String MEMBERS_CSV = "members.csv";
 
-    public List<Member> readFile() {
-        List<Member> members = new LinkedList<>();
+    public LinkedList<Member> readFile() {
+        LinkedList<Member> members = new LinkedList<>();
         String lineRead;
         String[] splitLine;
         Member member;
