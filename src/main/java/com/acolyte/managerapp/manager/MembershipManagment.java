@@ -22,4 +22,13 @@ public class MembershipManagment {
         }
         return choise;
     }
+
+    private void printClubOptions() {
+        System.out.println("Club Mercury");
+        System.out.println("Club Neptune");
+        System.out.println("Club Jupiter");
+        System.out.println("Multi Clubs");
+    }
+
+
 }
