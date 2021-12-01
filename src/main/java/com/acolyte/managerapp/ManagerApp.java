@@ -5,7 +5,6 @@ import com.acolyte.managerapp.manager.MembershipManagment;
 import com.acolyte.managerapp.member.Member;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class ManagerApp {
 

@@ -32,15 +32,21 @@ public class MembershipManagment {
     }
 
     private void printClubOptions() {
-        System.out.println("Club Mercury");
-        System.out.println("Club Neptune");
-        System.out.println("Club Jupiter");
-        System.out.println("Multi Clubs");
+        System.out.println("Choose club(s)");
+        System.out.println("1) Club Mercury");
+        System.out.println("2) Club Neptune");
+        System.out.println("3) Club Jupiter");
+        System.out.println("4) Multi Clubs");
     }
 
     public int getChoise() {
         int choise;
-
+        // for prettier output
+        try {
+            Thread.sleep(333);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("WELCOME TO OUR FITNESS CENTER");
         System.out.println("==============================");
         System.out.println("1) Add member");
@@ -98,7 +104,7 @@ public class MembershipManagment {
             member = new SingleClubMember('S', memberID, name, fees, club);
             members.add(member);
             memberInf = member.toString();
-            System.out.println("\nSTATUS: Single club member added\n");
+            System.out.println(SEPARATOR+ "--------------STATUS: Single club member added------------" + SEPARATOR);
         } else {
             if (club == 4) {
                 calculator = n -> {
@@ -113,7 +119,7 @@ public class MembershipManagment {
                 member = new MultiClubMember('M', memberID, name, fees, 100);
                 members.add(member);
                 memberInf = member.toString();
-                System.out.println("\nSTATUS: Multiclub member added\n");
+                System.out.println(SEPARATOR + "---------STATUS: Multiclub member added---------------" + SEPARATOR);
             }
         }
         return memberInf;
@@ -128,11 +134,12 @@ public class MembershipManagment {
         for (int i = 0; i < members.size(); i++) {
                 if (members.get(i).getMemberID() == memberID) {
                     members.remove(i);
-                    System.out.println("Remove operation successfully done");
+                    System.out.println("Remove operation successfully done" + SEPARATOR);
                     return;
                 } else {
-                    System.out.println("Member with this id doesn't represent in list");
+                    System.err.println("Member with this id doesn't represent in list" + SEPARATOR);
                 }
+            return;
         }
     }
 
@@ -142,9 +149,9 @@ public class MembershipManagment {
         System.out.print("Enter the id of the member you want to print: ");
         memberID = getIntInput();
 
-        for (Member member : members) {
-            if (member.getMemberID() == memberID) {
-                String[] memberInf = member.toString().split(", ");
+        for (int i = 0; i < members.size(); i++) {
+            if (members.get(i).getMemberID() == memberID) {
+                String[] memberInf = members.get(i).toString().split(", ");
                 if (memberInf[0].equals("S")) {
                     String clubName = null;
                     if (Integer.parseInt(memberInf[4]) == 1) {
@@ -167,7 +174,8 @@ public class MembershipManagment {
                             "Membership points: " + memberInf[4] + SEPARATOR);
                 }
             } else {
-                System.out.println("Member with this id doesn't represent in list");
+                System.err.println("Member with this id doesn't represent in list" + SEPARATOR);
+                return;
             }
         }
     }
