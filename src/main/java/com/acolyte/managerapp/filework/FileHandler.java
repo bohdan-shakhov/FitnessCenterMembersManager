@@ -4,21 +4,19 @@ import com.acolyte.managerapp.member.Member;
 import com.acolyte.managerapp.member.MultiClubMember;
 import com.acolyte.managerapp.member.SingleClubMember;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 public class FileHandler {
+
     public List<Member> readFile() {
         List<Member> members = new LinkedList<>();
         String lineRead;
         String[] splitLine;
         Member member;
 
-        try(BufferedReader reader = new BufferedReader(new FileReader("member.csv"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader("members.csv"))) {
             lineRead = reader.readLine();
 
             while (lineRead != null) {
@@ -45,5 +43,15 @@ public class FileHandler {
             e.printStackTrace();
         }
         return members;
+    }
+
+    public void appendFile(String member) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("members.csv", true))) {
+            writer.write(member + System.lineSeparator());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
