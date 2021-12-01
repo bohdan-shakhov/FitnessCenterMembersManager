@@ -26,6 +26,7 @@ public class MembershipManagment {
                 SCANNER.nextLine();
             } catch (InputMismatchException e) {
                 System.err.println("INVALID INPUT. Please try again: ");
+                getChoise();
             }
         }
         return choise;
@@ -139,7 +140,6 @@ public class MembershipManagment {
                 } else {
                     System.err.println("Member with this id doesn't represent in list" + SEPARATOR);
                 }
-            return;
         }
     }
 
@@ -175,7 +175,6 @@ public class MembershipManagment {
                 }
             } else {
                 System.err.println("Member with this id doesn't represent in list" + SEPARATOR);
-                return;
             }
         }
     }

@@ -31,7 +31,7 @@ public class ManagerApp {
                     managment.printMemberInfo(members);
                     break;
                 default:
-                    System.out.println(SEPARATOR + "You have selected an invalid option." + SEPARATOR);
+                    System.err.println(SEPARATOR + "You have selected an invalid option." + SEPARATOR);
                     break;
             }
             choise = managment.getChoise();
